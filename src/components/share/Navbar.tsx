@@ -1,7 +1,10 @@
+import { logoutAction } from "@/features/auth/auth-actions";
+import { getAuthSession } from "@/features/auth/auth-helpers";
 import Link from "next/link";
 import React from "react";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await getAuthSession();
   return (
     <React.Fragment>
       <section>
@@ -19,20 +22,42 @@ const Navbar = () => {
             <Link href="/posts" className="hover:text-indigo-600">
               Posts
             </Link>
-            <a href="#about" className="hover:text-indigo-600">
-              About
-            </a>
+            <Link href="/users" className="hover:text-indigo-600">
+              Users
+            </Link>
             <a href="#contact" className="hover:text-indigo-600">
               Contact
             </a>
           </nav>
           <div className="flex gap-3">
-            <button className="text-sm px-4 py-2 bg-white border rounded-xl shadow-sm">
-              Log in
-            </button>
-            <button className="text-sm px-4 py-2 bg-indigo-600 text-white rounded-xl shadow">
-              Sign up
-            </button>
+            {session?.user ? (
+              <>
+                <form action="">
+                  <button
+                    type="submit"
+                    formAction={logoutAction}
+                    className="text-sm px-4 py-2 bg-indigo-600 text-white rounded-xl shadow"
+                  >
+                    Sign out
+                  </button>
+                </form>
+              </>
+            ) : (
+              <>
+                <Link
+                  href={"/login"}
+                  className="text-sm px-4 py-2 bg-white border rounded-xl shadow-sm"
+                >
+                  Log in
+                </Link>
+                <Link
+                  href={"/register"}
+                  className="text-sm px-4 py-2 bg-indigo-600 text-white rounded-xl shadow"
+                >
+                  Sign up
+                </Link>
+              </>
+            )}
           </div>
         </header>
       </section>
