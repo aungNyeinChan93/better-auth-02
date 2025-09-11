@@ -1,6 +1,6 @@
 "use client";
 
-import { registerAction } from "@/features/auth/auth-actions";
+import { loginWithGithub, registerAction } from "@/features/auth/auth-actions";
 import { redirect, RedirectType } from "next/navigation";
 import { useActionState } from "react";
 
@@ -53,12 +53,14 @@ export default function RegisterForm() {
         <div className="my-4 text-center text-gray-500">OR</div>
 
         {/* Social logins */}
-        <button
-          //   onClick={() => signIn("github", { callbackUrl: "/" })}
-          className="mb-2 w-full rounded-lg bg-gray-800 p-2 text-white hover:bg-gray-900"
-        >
-          Continue with GitHub
-        </button>
+        <form action={loginWithGithub}>
+          <button
+            type="submit"
+            className="mb-2 w-full rounded-lg bg-gray-800 p-2 text-white hover:bg-gray-900"
+          >
+            Continue with GitHub
+          </button>
+        </form>
         <button
           //   onClick={() => signIn("google", { callbackUrl: "/" })}
           className="w-full rounded-lg bg-red-500 p-2 text-white hover:bg-red-600"

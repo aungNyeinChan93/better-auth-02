@@ -19,7 +19,10 @@ export default function TestRegister() {
       return toast.error("some fields are required");
     }
 
-    const { data, error } = await signUp.email({ ...form, callbackURL: "/" });
+    const { data, error } = await signUp.email({
+      ...form,
+      callbackURL: "/email-verified",
+    });
     if (error) {
       toast.error(error instanceof Error ? error?.message : "register fail");
       return;

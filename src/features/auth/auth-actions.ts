@@ -57,3 +57,16 @@ export async function loginAction(initialState: any, formData: FormData) {
         return { success: false, error: error instanceof Error ? error?.message : 'login error!' }
     }
 }
+
+
+export async function loginWithGithub() {
+    const { url } = await auth.api.signInSocial({
+        body: {
+            provider: 'github'
+        }
+    })
+    if (!url) {
+        return;
+    }
+    return redirect(url, RedirectType.replace)
+}

@@ -17,4 +17,15 @@ export async function getAllUsers() {
         take: 10
     })
     return users
+};
+
+
+export async function getUserById(id: string | number) {
+    const user: UserType | undefined | null = await prisma?.user.findUnique({
+        where: { id: id as string },
+        include: {
+            Post: { include: { author: true } }
+        }
+    })
+    return user;
 }

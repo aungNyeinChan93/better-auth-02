@@ -1,11 +1,15 @@
 import React from "react";
 import { AuthSession } from "@/features/auth/auth-helpers";
+import { getUserById, type UserType } from "@/features/users/users-helper";
 
 interface Props {
   session?: AuthSession | null;
 }
 
-const UserProfile = ({ session }: Props) => {
+const UserProfile = async ({ session }: Props) => {
+  const authUser: UserType | undefined | null =
+    session && (await getUserById(session?.user?.id as string));
+
   return (
     <div className="flex min-h-screen shadow bg-gray-100 rounded-2xl">
       {/* Main Content */}
@@ -17,7 +21,11 @@ const UserProfile = ({ session }: Props) => {
           </h1>
           <div className="flex items-center space-x-4">
             <img
-              src="https://via.placeholder.com/40"
+              src={`${
+                authUser?.image
+                  ? authUser?.image
+                  : "https://via.placeholder.com/40"
+              } `}
               alt="avatar"
               className="w-10 h-10 rounded-full"
             />
