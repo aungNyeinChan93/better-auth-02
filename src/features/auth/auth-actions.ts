@@ -1,8 +1,6 @@
 'use server'
 
 import { auth } from "@/lib/auth";
-import { success } from "better-auth";
-import { error } from "console";
 import { headers } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
 
