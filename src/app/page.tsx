@@ -7,7 +7,7 @@ const HomePage = async () => {
 
   return (
     <React.Fragment>
-      <main className="bg-green-50 w-full min-h-screen">
+      <main className="bg-green-50 w-full min-h-screen container mx-auto">
         <pre>{JSON.stringify(session, null, 2)}</pre>
       </main>
     </React.Fragment>

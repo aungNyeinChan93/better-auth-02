@@ -37,6 +37,7 @@ model User {
   updatedAt     DateTime  @default(now()) @updatedAt
   sessions      Session[]
   accounts      Account[]
+  Post          Post[]
 
   @@unique([email])
   @@map("user")
@@ -85,4 +86,16 @@ model Verification {
   updatedAt  DateTime @default(now()) @updatedAt
 
   @@map("verification")
+}
+
+model Post {
+  id        String  @id @default(cuid())
+  title     String
+  content   String? @db.Text
+  image     String?
+  author    User?   @relation(fields: [author_id], references: [id], onDelete: Cascade)
+  author_id String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
