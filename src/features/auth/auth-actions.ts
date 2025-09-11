@@ -36,7 +36,7 @@ export async function logoutAction() {
     if (!isLogout) {
         return;
     }
-    return redirect('/register')
+    return redirect('/login', RedirectType.replace)
 }
 
 // login 

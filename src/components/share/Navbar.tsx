@@ -25,9 +25,9 @@ const Navbar = async () => {
             <Link href="/users" className="hover:text-indigo-600">
               Users
             </Link>
-            <a href="#contact" className="hover:text-indigo-600">
-              Contact
-            </a>
+            <Link href="/profile" className="hover:text-indigo-600">
+              Profile
+            </Link>
           </nav>
           <div className="flex gap-3">
             {session?.user ? (
