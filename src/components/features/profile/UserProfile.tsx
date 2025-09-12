@@ -1,6 +1,7 @@
 import React from "react";
 import { ServerAuthSession } from "@/features/auth/auth-helpers";
 import { getUserById, type UserType } from "@/features/users/users-helper";
+import Link from "next/link";
 
 interface Props {
   session?: ServerAuthSession | null;
@@ -24,11 +25,13 @@ const UserProfile = async ({ session }: Props) => {
             </span>
           </h1>
           <div className="flex items-center space-x-4">
-            <img
-              src={`${authUser?.image ? authUser?.image : "/next.svg"} `}
-              alt="avatar"
-              className="w-10 h-10 rounded-full"
-            />
+            <Link href={`/profile/profile-setting`}>
+              <img
+                src={`${authUser?.image ? authUser?.image : "/next.svg"} `}
+                alt="avatar"
+                className="w-10 h-10 rounded-full"
+              />
+            </Link>
           </div>
         </header>
 

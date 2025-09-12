@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Homepage() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800">
+    <div className="min-h-screen bg-slate-50 text-slate-800 container mx-auto">
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 py-20 text-center">
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900">
