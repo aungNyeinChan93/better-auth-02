@@ -8,10 +8,15 @@ import { getAuthSession } from "@/features/auth/auth-helpers";
 import { getUserById } from "@/features/users/users-helper";
 import ThemeSwitch from "@/components/share/profile-setting-theme-switch";
 import Container from "@/components/share/Container";
+import { unauthorized } from "next/navigation";
 
 const DashboardSettings = async () => {
   const session = await getAuthSession();
-  const authUser = await getUserById(session?.user?.id as string);
+  const authUser = session && (await getUserById(session?.user?.id as string));
+
+  if (!session) {
+    return unauthorized();
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 container mx-auto p-6">
