@@ -52,8 +52,8 @@ const UserDetail = ({ user, posts }: Props) => {
                     {post.author?.name}
                   </span>
                   <div className="flex gap-4">
-                    <span>👍 {""}</span>
-                    <span>💬 {""}</span>
+                    <span>👍 {"10"}</span>
+                    <span>💬 {"2"}</span>
                   </div>
                 </div>
               </CardContent>

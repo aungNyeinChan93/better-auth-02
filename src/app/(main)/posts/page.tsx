@@ -8,9 +8,9 @@ const PostsPage = async () => {
   const posts: PostType[] | undefined = await getAllPosts();
   return (
     <React.Fragment>
-      <main className="w-full min-h-screen bg-green-50 container mx-auto p-2 rounded-2xl">
+      <main className="w-full min-h-screen bg-green-50 container mx-auto p-2 rounded-2xl ">
         <div className="flex flex-col">
-          <div className="bg-white shadow-sm">
+          <div className="bg-white shadow-sm ">
             <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
               <h1 className="text-2xl font-bold text-slate-900">Post Lists</h1>
               <Link
