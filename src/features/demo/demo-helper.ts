@@ -8,11 +8,9 @@ export const createDemo = async (name: string) => {
         }
     })
     console.log(demo?.name);
-
 };
 
 // 
-
 export const getAllDemos = async () => {
     return await prisma?.demo.findMany();
 }

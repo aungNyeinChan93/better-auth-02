@@ -1,9 +1,9 @@
 import React from "react";
-import { AuthSession } from "@/features/auth/auth-helpers";
+import { ServerAuthSession } from "@/features/auth/auth-helpers";
 import { getUserById, type UserType } from "@/features/users/users-helper";
 
 interface Props {
-  session?: AuthSession | null;
+  session?: ServerAuthSession | null;
 }
 
 const UserProfile = async ({ session }: Props) => {
@@ -21,11 +21,7 @@ const UserProfile = async ({ session }: Props) => {
           </h1>
           <div className="flex items-center space-x-4">
             <img
-              src={`${
-                authUser?.image
-                  ? authUser?.image
-                  : "https://via.placeholder.com/40"
-              } `}
+              src={`${authUser?.image ? authUser?.image : "/next.svg"} `}
               alt="avatar"
               className="w-10 h-10 rounded-full"
             />

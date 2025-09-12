@@ -20,7 +20,7 @@ const TestLogout = () => {
               fetchOptions: {
                 onSuccess: () => {
                   toast.success("logout success");
-                  return router.replace("/");
+                  return router.replace("/login");
                 },
               },
             })

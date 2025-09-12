@@ -17,6 +17,12 @@ export const auth = betterAuth({
             clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
         },
     },
-    plugins: [nextCookies()]
+    plugins: [nextCookies()],
+    // session:{},
+    rateLimit: {
+        enabled: true,
+        window: 60,
+        max: 100
+    }
 });
 

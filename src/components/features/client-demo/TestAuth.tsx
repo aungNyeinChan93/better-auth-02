@@ -1,6 +1,7 @@
 "use client";
 
 import authClient, { useSession } from "@/lib/auth-cleint";
+import { getSession } from "better-auth/api";
 import React, { useEffect } from "react";
 
 const TestAuth = () => {
