@@ -1,10 +1,15 @@
 import { logoutAction } from "@/features/auth/auth-actions";
 import { getAuthSession } from "@/features/auth/auth-helpers";
+import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import React from "react";
 
 const Navbar = async () => {
   const session = await getAuthSession();
+  if (!session) {
+    return null;
+  }
+
   return (
     <React.Fragment>
       <section>

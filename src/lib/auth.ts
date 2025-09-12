@@ -18,11 +18,23 @@ export const auth = betterAuth({
         },
     },
     plugins: [nextCookies()],
-    // session:{},
+    session: {},
     rateLimit: {
         enabled: true,
         window: 60,
         max: 100
+    },
+    user: {
+        additionalFields: {
+            role: {
+                type: "string",
+                defaultValue: 'user',
+                input: false
+            }
+        }
     }
 });
+
+export type ServerAuthSession = typeof auth.$Infer.Session;
+export type AuthUser = typeof auth.$Infer.Session.user;
 

@@ -1,6 +1,7 @@
 'use server'
 
 import { auth } from "@/lib/auth";
+import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
 
@@ -52,6 +53,7 @@ export async function loginAction(initialState: any, formData: FormData) {
         if (!url) {
             return { success: false, error: 'login fail' }
         };
+        revalidatePath('/')
         return { success: true, url }
     } catch (error) {
         return { success: false, error: error instanceof Error ? error?.message : 'login error!' }

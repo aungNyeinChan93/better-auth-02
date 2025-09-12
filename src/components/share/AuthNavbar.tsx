@@ -1,0 +1,36 @@
+import Link from "next/link";
+import React from "react";
+
+const AuthNavbar = async () => {
+  return (
+    <React.Fragment>
+      <section>
+        <header className="flex items-center justify-between max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-indigo-600 text-white font-bold flex items-center justify-center rounded-lg">
+              H
+            </div>
+            <span className="font-semibold text-lg">HomePro</span>
+          </div>
+
+          <div className="flex gap-3">
+            <Link
+              href={"/login"}
+              className="text-sm px-4 py-2 bg-white border rounded-xl shadow-sm"
+            >
+              Log in
+            </Link>
+            <Link
+              href={"/register"}
+              className="text-sm px-4 py-2 bg-indigo-600 text-white rounded-xl shadow"
+            >
+              Sign up
+            </Link>
+          </div>
+        </header>
+      </section>
+    </React.Fragment>
+  );
+};
+
+export default AuthNavbar;

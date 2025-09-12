@@ -17,7 +17,11 @@ const UserProfile = async ({ session }: Props) => {
         {/*Profile Header */}
         <header className="bg-white shadow-md p-4 flex justify-between items-center">
           <h1 className="text-xl font-semibold">
-            Welcome back, {session?.user?.name ?? "unknown"} 👋
+            Welcome back, {session?.user?.name ?? "unknown"} 👋👋👋
+            <span className="text-xs px-2 py-1 rounded-4xl ms-4 bg-slate-100 text-indigo-700">
+              {" "}
+              {authUser?.role || "guest"}
+            </span>
           </h1>
           <div className="flex items-center space-x-4">
             <img

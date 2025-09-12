@@ -1,4 +1,5 @@
 import { UserType } from "@/features/users/users-helper";
+import Link from "next/link";
 import React from "react";
 
 interface Props {
@@ -56,6 +57,12 @@ export default function UserTable({ users }: Props) {
                     {user?.createdAt.toLocaleTimeString()}
                   </td>
                   <td className="p-3 text-right">
+                    <Link
+                      href={`/users/${user?.id}`}
+                      className="text-green-600 hover:underline text-sm mr-3"
+                    >
+                      Detail
+                    </Link>
                     <button className="text-indigo-600 hover:underline text-sm mr-3">
                       Edit
                     </button>

@@ -20,3 +20,13 @@ export async function getAllPosts(limit?: number | string) {
     })
     return posts;
 }
+
+
+export async function getAllPostById(id?: string | number) {
+    const posts = await prisma?.post.findMany({
+        where: { author: { id: id as string } },
+        include: { author: { include: { accounts: true } } },
+        orderBy: { created_at: "desc" },
+    })
+    return posts;
+}
