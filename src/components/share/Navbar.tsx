@@ -34,7 +34,14 @@ const Navbar = async () => {
             </Link>
             <Link href="/profile" className="hover:text-indigo-600">
               Profile
-            </Link>
+            </Link>{" "}
+            {session?.user?.role === "admin" && (
+              <>
+                <Link href="/admin-dashboard" className="hover:text-indigo-600">
+                  Admin Dashboard
+                </Link>
+              </>
+            )}
           </nav>
           <div className="flex gap-3">
             {session?.user ? (
