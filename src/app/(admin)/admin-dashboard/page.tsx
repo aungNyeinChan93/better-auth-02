@@ -13,7 +13,7 @@ const AdminDashboardPage = async () => {
   }
   return (
     <React.Fragment>
-      <main className="container w-full min-h-screen bg-slate-300 p-3 mx-auto">
+      <main className="container w-full min-h-screen rounded-xl p-3 mx-auto">
         <Container>
           <AdminDashboard />
         </Container>
